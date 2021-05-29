@@ -7,7 +7,7 @@
   max-width: 1280px;
   min-height: 608px;
   box-sizing: border-box;
-  padding: 110px 70px;
+  padding: 94px 70px;
 }
 
 .about-project__title {
@@ -99,7 +99,7 @@
     max-width: 768px;
     min-height: 405px;
     box-sizing: border-box;
-    padding: 90px 50px;
+    padding: 73px 50px 91px;
   }
 
   .about-project__container {
@@ -121,9 +121,13 @@
   }
 
   .about-project__progress {
-    margin-top: 92px;
+    margin-top: 95px;
     max-width: 668px;
     grid-template-columns: 140px 528px;
+  }
+
+  .about-project__text_color_gray {
+    margin-top: 13px;
   }
 }
 

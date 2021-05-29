@@ -21,14 +21,14 @@ function Header({ isColorBlack, isHeaderExsists, loggedIn }) {
     { isHeaderExsists && (
     <header className={`header ${ isColorBlack ? 'header_bg_black' : ''}`}>
       <div className="header__wrapper">
-        <Link className="header__link" to="/"><img className="header__logo" alt="Логотип" src={logo}/></Link>
-        <div className="header__button-container">
+        <Link className="header__logo-link" to="/"><img className="header__logo" alt="Логотип" src={logo}/></Link>
+        <div className="header__link-container">
           {loggedIn ?
           <div className={`header__nav-container ${isOpenPopup ? '' : 'header__nav-container_close'}`}><Navigation handleClosePopup={handleClosePopup}/></div>
           :
           (<>
-            <button className="header__button header__button_signup">Регистрация</button>
-            <button className="header__button header__button_signin">Войти</button>
+            <Link className="header__link header__link_signup" to="/signup">Регистрация</Link>
+            <Link className="header__link header__link_signin" to="/signin">Войти</Link>
           </>)}
         </div>
         {loggedIn && <button className={`header__phone-button ${isOpenPopup ? 'header__phone-button_hidden' : ''}`}type="button" onClick={handleOpenPopup}/>}

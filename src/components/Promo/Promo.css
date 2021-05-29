@@ -18,7 +18,6 @@
 }
 
 .promo__title {
-  letter-spacing: -0.04em;
   margin: 0 auto;
   max-width: 640px;
   min-height: 174px;
@@ -102,6 +101,7 @@
   }
 
   .promo__title {
+    letter-spacing: -0.04em;
     margin-top: 44px;
     font-size: 30px;
     line-height: 38px;

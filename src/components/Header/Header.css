@@ -16,7 +16,7 @@
   min-height: 74px;
 }
 
-.header__link {
+.header__logo-link {
   margin: auto 0;
 }
 
@@ -25,11 +25,16 @@
   height: 38px;
 }
 
-.header__button-container {
+.header__link-container {
+  display: flex;
   margin: auto 0;
 }
 
-.header__button {
+.header__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
   position: relative;
   z-index: 5;
   cursor: pointer;
@@ -40,18 +45,18 @@
   border: none;
 }
 
-.header__button:focus {
+.header__link:focus {
   outline: none;
 }
 
-.header__button_signin {
+.header__link_signin {
   background-color: #3DDC84;
   width: 76px;
   height: 32px;
   border-radius: 3px;
 }
 
-.header__button_signup {
+.header__link_signup {
   padding: 0;
   background-color: #073042;
   color: #ffffff;
@@ -104,14 +109,14 @@
     padding: 0 14px;
   }
 
-  .header__button_signin {
+  .header__link_signin {
     width: 54px;
     height: 26px;
     font-size: 10px;
     line-height: 16px;
   }
 
-  .header__button_signup {
+  .header__link_signup {
     font-size: 10px;
     line-height: 16px;
     margin-right: 14px;
