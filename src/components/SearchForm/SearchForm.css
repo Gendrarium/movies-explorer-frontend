@@ -14,6 +14,7 @@
 }
 
 .search__label_input_text {
+  box-sizing: border-box;
   justify-content: flex-end;
   border-radius: 40px;
   width: 1140px;
@@ -29,7 +30,7 @@
 .search__input {
   box-sizing: border-box;
   width: 1028px;
-  height: 46px;
+  height: 44px;
   border: none;
   background-color: #2F2F2F;
   font-style: normal;
@@ -41,6 +42,10 @@
 
 .search__input:focus {
   outline: none;
+}
+
+.search__label_input_focus {
+  border: 1px solid gray;
 }
 
 .search__input::placeholder {
@@ -93,7 +98,6 @@
 
   .search__input {
     width: 596px;
-    height: 46px;
   }
 
   .search__label_input_checkbox {

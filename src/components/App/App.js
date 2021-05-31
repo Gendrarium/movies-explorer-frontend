@@ -13,7 +13,7 @@ import React from 'react';
 import './App.css';
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(true);
   const [isHeaderColorBlack, setIsHeaderColorBlack] = React.useState(false);
   const [isHeaderExsists, setIsHeaderExsists] = React.useState(true);
   const [isFooterExsists, setIsFooterExsists] = React.useState(true);
