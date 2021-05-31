@@ -1,0 +1,85 @@
+.movie {
+  background-color: #222222;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  max-width: 364px;
+  min-height: 271px;
+}
+
+.movie__container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.movie__text-container {
+  padding: 14px 0 0 14px;
+}
+
+.movie__title {
+  margin: 0 0 9px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #FFFFFF;
+}
+
+.movie__duration {
+  margin: 0px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #8B8B8B;
+}
+
+.movie__like-button {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin: 19px 14px 0 0;
+  border: none;
+  background: url(../../images/movie-like-button.svg) center/10px 16px no-repeat #313131;
+  border-radius: 36px;
+}
+
+.movie__like-button:focus {
+  outline: none;
+}
+
+.movie__like-button_active {
+  background: url(../../images/movie-like-button-active.svg) center/10px 16px no-repeat #3DDC84;
+}
+
+.movie__like-button_delete {
+  background: url(../../images/header-menu-open.svg) center/10px 10px no-repeat #313131;
+}
+
+.movie__image {
+  width: 364px;
+  height: 203px;
+}
+
+@media screen and (max-width: 1279px) {
+  .movie {
+    max-width: 339px;
+    min-height: 258px;
+  }
+
+  .movie__image {
+    width: 339px;
+    height: 190px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .movie {
+    max-width: 300px;
+    min-height: 236px;
+  }
+
+  .movie__image {
+    width: 300px;
+    height: 168px;
+  }
+}

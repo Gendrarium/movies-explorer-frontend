@@ -1,0 +1,125 @@
+.header__phone-close-button {
+  cursor: pointer;
+  border: none;
+  width: 40px;
+  height: 43px;
+  display: none;
+  background: url(../../images/header-menu-open.svg) center/31px 31px no-repeat;
+  margin: 16px 19px 0 0;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu__link {
+  margin: auto 0 auto 18px;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ffffff;
+}
+
+.menu__link_active {
+  font-weight: 500;
+}
+
+.menu__link:first-of-type {
+  margin-left: 0;
+}
+
+.menu__link-phone {
+  display: none;
+}
+
+.menu__account-container {
+  position: relative;
+  text-decoration: none;
+  margin-left: 50px;
+  border-radius: 20px;
+  width: 100px;
+  height: 32px;
+  background-color: #313131;
+  display: flex;
+}
+
+.menu__account {
+  margin: auto;
+  color: #FFFFFF;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+@media screen and (max-width: 1279px) {
+  .header__phone-popup {
+    min-width: 520px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #202020;
+    top: 0;
+    right: 0;
+  }
+
+  .header__phone-close-button {
+    display: block;
+    align-self: flex-end;
+  }
+
+  .menu {
+    margin-top: 101px;
+    flex-direction: column;
+    background-color: #202020;
+    padding-bottom: 90px;
+  }
+
+  .menu__link {
+    margin: 28px auto 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .menu__link_active {
+    box-sizing: border-box;
+    border-bottom: 2px solid #FFFFFF;
+  }
+
+  .menu__link:first-of-type {
+    margin: 0;
+  }
+
+  .menu__link-phone {
+    display: block;
+  }
+
+  .menu__account-container {
+    margin: 620px auto 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__phone-popup {
+    min-width: 320px;
+  }
+
+  .header__phone-close-button {
+    margin: 7px 10px 0 0;
+  }
+
+  .menu {
+    margin-top: 95px;
+  }
+
+  .menu__link {
+    margin-top: 24px;
+  }
+
+  .menu__account-container {
+    margin-top: 442px;
+  }
+}

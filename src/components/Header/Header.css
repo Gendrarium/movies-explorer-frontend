@@ -1,0 +1,130 @@
+.header {
+  background-color: #073042;
+}
+
+.header_bg_black {
+  background-color: #202020;
+}
+
+.header__wrapper {
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 70px;
+  max-width: 1280px;
+  min-height: 74px;
+}
+
+.header__logo-link {
+  margin: auto 0;
+}
+
+.header__logo {
+  width: 38px;
+  height: 38px;
+}
+
+.header__link-container {
+  display: flex;
+  margin: auto 0;
+}
+
+.header__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  z-index: 5;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  border: none;
+}
+
+.header__link:focus {
+  outline: none;
+}
+
+.header__link_signin {
+  background-color: #3DDC84;
+  width: 76px;
+  color: #000000;
+  height: 32px;
+  border-radius: 3px;
+}
+
+.header__link_signup {
+  padding: 0;
+  color: #ffffff;
+  background-color: #073042;
+  margin-right: 30px;
+}
+
+.header__phone-button {
+  margin: 15px 2px 0 0;
+  cursor: pointer;
+  border: none;
+  display: none;
+  width: 40px;
+  height: 43px;
+  background: url(../../images/header-menu-burger.svg) center/44px 44px no-repeat;
+}
+
+@media screen and (max-width: 1279px) {
+  .header__wrapper {
+    max-width: 768px;
+    padding: 0 30px;
+  }
+
+  .header__phone-button {
+    display: block;
+  }
+
+  .header__phone-button_hidden {
+    display: none;
+  }
+
+  .header__nav-container {
+    position: fixed;
+    z-index: 2;
+    overflow-y: hidden;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 100vh;
+  }
+
+  .header__nav-container_close {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__wrapper {
+    max-width: 320px;
+    padding: 0 14px;
+  }
+
+  .header__link_signin {
+    width: 54px;
+    height: 26px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .header__link_signup {
+    font-size: 10px;
+    line-height: 16px;
+    margin-right: 14px;
+  }
+
+  .header__phone-button {
+    margin: 15px 0 0;
+    background-size: 35px 37px;
+  }
+}
