@@ -43,7 +43,7 @@ function Movies({
       .then((res) => {
         if (res) {
           localStorage.setItem('allMovies', JSON.stringify(res));
-          setMovies(handleFilterMovies(res, isShortFilm, values.search, savedMovies));
+          setMovies(handleFilterMovies(res, isShortFilm, values.search));
         } else {
           throw new Error();
         }
@@ -55,7 +55,7 @@ function Movies({
         setIsPreloaderVisible(false);
       })
     } else {
-      setMovies(handleFilterMovies(JSON.parse(localStorage.getItem('allMovies')), isShortFilm, values.search, savedMovies));
+      setMovies(handleFilterMovies(JSON.parse(localStorage.getItem('allMovies')), isShortFilm, values.search));
       setIsPreloaderVisible(false);
     }
   }

@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'https://api.gendra.movies.nomoredomains.club';
 
 export const register = ({ password, email, name }) => {
   return fetch(`${BASE_URL}/signup`, {
