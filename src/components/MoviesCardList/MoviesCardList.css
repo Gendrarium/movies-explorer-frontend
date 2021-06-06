@@ -17,6 +17,7 @@
 }
 
 .movies__not-found {
+  max-width: 1140px;
   color: #ffffff;
   margin: 0 auto;
   font-style: normal;
@@ -57,6 +58,10 @@
     min-width: 708px;
   }
 
+  .movies__not-found {
+    max-width: 708px;
+  }
+
   .movies__grid-cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 33px 30px;
@@ -75,6 +80,7 @@
   }
 
   .movies__not-found {
+    max-width: 300px;
     font-size: 14px;
     line-height: 16px;
   }
