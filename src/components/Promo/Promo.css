@@ -40,6 +40,10 @@
 }
 
 .promo__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
   margin-top: 84px;
   width: 129px;
   height: 36px;
