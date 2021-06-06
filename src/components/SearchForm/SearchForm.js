@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchForm.css';
 
-function SearchForm() {
+function SearchForm({ handleSetShortFilm, values, handleChange, handleSubmit }) {
   const [isInputFocus, setIsInputFocus] = React.useState(false);
 
   function handleFocusInput() {
@@ -15,12 +15,14 @@ function SearchForm() {
   return (
     <section className="search">
       <div className="search__full-container">
-        <label className={`search__label search__label_input_text ${isInputFocus && 'search__label_input_focus'}`}>
-          <input className="search__input" type="text" placeholder="Фильм" onFocus={handleFocusInput} onBlur={handleBlurInput} required/>
-          <button className="search__button" type="button"/>
-        </label>
+        <form onSubmit={handleSubmit}>
+          <label className={`search__label search__label_input_text ${isInputFocus && 'search__label_input_focus'}`}>
+            <input className="search__input" type="text" name="search" placeholder="Фильм" onFocus={handleFocusInput}  value={values.search || ''} onChange={handleChange} onBlur={handleBlurInput} required/>
+            <button className="search__button" type="submit"/>
+          </label>
+        </form>
         <label className="search__label search__label_input_checkbox">
-          <input className="search__checkbox" type="checkbox"/>
+          <input className="search__checkbox" type="checkbox" onClick={handleSetShortFilm}/>
           <div className="search__checkbox-replace"/>
           <p className="search__checkbox-text">Короткометражки</p>
         </label>

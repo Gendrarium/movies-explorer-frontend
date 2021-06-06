@@ -39,7 +39,7 @@
   flex-direction: column;
   min-height: 335px;
   box-sizing: border-box;
-  padding-bottom: 70px;
+  padding-bottom: 48px;
 }
 
 .auth-page__input-title {
@@ -94,6 +94,18 @@
   margin-bottom: 0px;
 }
 
+.auth-page__error {
+  text-align: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  min-height: 17px;
+  color: #EE3465;
+  max-width: 396px;
+  margin-bottom: 5px;
+}
+
 .auth-page__button {
   cursor: pointer;
   border: none;
@@ -106,6 +118,12 @@
   font-size: 14px;
   line-height: 17px;
   color: #FFFFFF;
+}
+
+.auth-page_button_disabled {
+  background-color: gray;
+  color: #000000;
+  cursor: default;
 }
 
 .auth-page__link-text {
@@ -149,10 +167,17 @@
     min-height: 423px;
     max-width: 260px;
     margin: 0 auto;
+    padding-bottom: 50px;
   }
 
   .auth-page__input {
     width: 260px;
+  }
+
+  .auth-page__error {
+    font-size: 12px;
+    line-height: 15px;
+    max-width: 260px;
   }
 
   .auth-page__button {

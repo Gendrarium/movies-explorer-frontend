@@ -3,6 +3,7 @@
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
   max-width: 364px;
   min-height: 271px;
+  cursor: pointer;
 }
 
 .movie__container {
@@ -16,6 +17,10 @@
 }
 
 .movie__title {
+  max-width: 290px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   margin: 0 0 9px;
   font-style: normal;
   font-weight: 500;
@@ -55,6 +60,16 @@
   background: url(../../images/header-menu-open.svg) center/10px 10px no-repeat #313131;
 }
 
+.movie__not-found-image {
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+}
+
 .movie__image {
   width: 364px;
   height: 203px;
@@ -64,6 +79,10 @@
   .movie {
     max-width: 339px;
     min-height: 258px;
+  }
+
+  .movie__title {
+    max-width: 270px;
   }
 
   .movie__image {
@@ -76,6 +95,10 @@
   .movie {
     max-width: 300px;
     min-height: 236px;
+  }
+
+  .movie__title {
+    max-width: 240px;
   }
 
   .movie__image {
