@@ -67,6 +67,27 @@ function Movies({
     setLocation('/movies');
   }, [isAuthChecking, setIsHeaderColorBlack, setIsHeaderExsists, setIsFooterExsists, setLocation]);
 
+  React.useEffect(() => {
+    if (isFirstSearch) {
+      localStorage.setItem('lastSearch', JSON.stringify(movies));
+    }
+  }, [movies, isFirstSearch]);
+
+  React.useEffect(() => {
+    const lastSearch = JSON.parse(localStorage.getItem('lastSearch'));
+    if (lastSearch.length > 0) {
+      const filteredMovies = lastSearch.filter((item) => {
+        savedMovies.forEach((i) => {
+          if (i.movieId === item.id) {
+            return item.isLiked = true;
+          }
+        })
+        return item;
+      })
+      setMovies(filteredMovies);
+    }
+  }, [savedMovies])
+
   return (
     <>
       <Helmet>

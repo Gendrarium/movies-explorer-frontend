@@ -12,6 +12,15 @@ import Footer from '../Footer/Footer';
 import { getMovies, checkToken, logout } from '../../utils/MainApi';
 import React from 'react';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
+import {
+  MOVIES_LENGTH_DESKTOP,
+  MOVIES_ADD_DESKTOP,
+  MOVIES_LENGTH_TABLET,
+  MOVIES_ADD_TABLET,
+  MOVIES_LENGTH_MOBILE,
+  MOVIES_ADD_MOBILE,
+  SHORT_FILM,
+ } from '../../utils/config';
 import './App.css';
 
 function App() {
@@ -38,14 +47,14 @@ function App() {
 
   function handleSize() {
     if (window.innerWidth >= 1280) {
-      setMovieLength(12);
-      setMovieLengthAdd(3);
+      setMovieLength(MOVIES_LENGTH_DESKTOP);
+      setMovieLengthAdd(MOVIES_ADD_DESKTOP);
     } else if (window.innerWidth >= 768 && window.innerWidth < 1280) {
-      setMovieLength(8);
-      setMovieLengthAdd(2);
+      setMovieLength(MOVIES_LENGTH_TABLET);
+      setMovieLengthAdd(MOVIES_ADD_TABLET);
     } else {
-      setMovieLength(5);
-      setMovieLengthAdd(2);
+      setMovieLength(MOVIES_LENGTH_MOBILE);
+      setMovieLengthAdd(MOVIES_ADD_MOBILE);
     }
   }
 
@@ -76,7 +85,7 @@ function App() {
       return item.nameRU.toLowerCase().indexOf(value.toLowerCase()) !== -1
     })
     if (isShortFilm && filteredMovies.length > 0) {
-      return filteredMovies.filter((item) => item.duration < 40);
+      return filteredMovies.filter((item) => item.duration < SHORT_FILM);
     }
     return filteredMovies;
   }
@@ -108,6 +117,10 @@ function App() {
       console.log(err);
     })
   }, [])
+
+  React.useEffect(() => {
+    handleSize();
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
