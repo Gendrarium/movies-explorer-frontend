@@ -74,18 +74,18 @@ function Movies({
   }, [movies, isFirstSearch]);
 
   React.useEffect(() => {
-    const lastSearch = JSON.parse(localStorage.getItem('lastSearch'));
-    if (lastSearch.length > 0) {
-      const filteredMovies = lastSearch.filter((item) => {
-        savedMovies.forEach((i) => {
-          if (i.movieId === item.id) {
-            return item.isLiked = true;
-          }
+      const lastSearch = JSON.parse(localStorage.getItem('lastSearch')) || [];
+      if (lastSearch.length > 0) {
+        const filteredMovies = lastSearch.filter((item) => {
+          savedMovies.forEach((i) => {
+            if (i.movieId === item.id) {
+              return item.isLiked = true;
+            }
+          })
+          return item;
         })
-        return item;
-      })
-      setMovies(filteredMovies);
-    }
+        setMovies(filteredMovies);
+      }
   }, [savedMovies])
 
   return (
