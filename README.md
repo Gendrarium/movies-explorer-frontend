@@ -18,4 +18,4 @@ JSX, React.js
 
 **Ссылка на сайт**
 
-[Нажмите сюда, чтобы посмотреть сайт.](https://gendra-mesto-auth.herokuapp.com/)
+[Нажмите сюда, чтобы посмотреть сайт.](https://movies-explorer-gendrarium.herokuapp.com/)
