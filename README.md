@@ -18,6 +18,4 @@ JSX, React.js
 
 **Ссылка на сайт**
 
-Публичный ip-адрес сервера: 130.193.46.3
-
-[Нажмите сюда, чтобы посмотреть сайт.](https://gendra.movies.nomoredomains.club/)
+[Нажмите сюда, чтобы посмотреть сайт.](https://gendra-mesto-auth.herokuapp.com/)
