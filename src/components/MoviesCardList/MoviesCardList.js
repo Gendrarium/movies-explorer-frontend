@@ -37,7 +37,6 @@ function MoviesCardList({
   }, [movies]);
 
   React.useEffect(() => {
-    console.log(movies.length, newMovieLength)
     if (movies.length >= newMovieLength) {
       setNewMovies(movies.slice(0, newMovieLength));
     } else {
@@ -49,7 +48,6 @@ function MoviesCardList({
     setNewMovieLength(newMovieLength + movieLengthAdd);
   }
 
-  console.log(movieLength);
   return (
     <section className="movies">
       <div className="movies__full-container">
