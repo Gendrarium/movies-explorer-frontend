@@ -20,7 +20,7 @@ import {
   MOVIES_LENGTH_MOBILE,
   MOVIES_ADD_MOBILE,
   SHORT_FILM,
- } from '../../utils/config';
+} from '../../utils/config';
 import './App.css';
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
   function resize() {
     setTimeout(() => {
       handleSize();
-    }, 1000)
+    }, 1000);
   }
 
   function handleSize() {
@@ -76,21 +76,25 @@ function App() {
   }
 
   function handleFilterMovies(movies, isShortFilm, value) {
-    const filteredMovies = movies.filter((item) => {
-      savedMovies.forEach((i) => {
-        if (i.movieId === item.id) {
-          return item.isLiked = true;
-        }
-      })
-      return item.nameRU.toLowerCase().indexOf(value.toLowerCase()) !== -1
-    })
-    if (isShortFilm && filteredMovies.length > 0) {
-      return filteredMovies.filter((item) => item.duration < SHORT_FILM);
+    if (savedMovies.length > 0) {
+      const filteredMovies = movies.filter((item) => {
+        savedMovies.forEach((i) => {
+          if (i.movieId === item.id) {
+            return (item.isLiked = true);
+          }
+        });
+        return item.nameRU.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+      });
+      if (isShortFilm && filteredMovies.length > 0) {
+        return filteredMovies.filter((item) => item.duration < SHORT_FILM);
+      }
+      return filteredMovies;
+    } else {
+      return [];
     }
-    return filteredMovies;
   }
 
-  React.useEffect(()=> {
+  React.useEffect(() => {
     setIsHeaderExsists(false);
     setIsFooterExsists(false);
     setIsAuthChecking(true);
@@ -102,21 +106,21 @@ function App() {
       })
       .finally(() => {
         setIsAuthChecking(false);
-      })
-  }, [])
+      });
+  }, []);
 
   React.useEffect(() => {
     getMovies()
-    .then((res) => {
-      if (res) {
-        setSavedMovies(res);
-      }
-    })
-    .catch((err) => {
-      setFetchError(true);
-      console.log(err);
-    })
-  }, [])
+      .then((res) => {
+        if (res) {
+          setSavedMovies(res);
+        }
+      })
+      .catch((err) => {
+        setFetchError(true);
+        console.log(err);
+      });
+  }, []);
 
   React.useEffect(() => {
     handleSize();
@@ -124,10 +128,12 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      {isHeaderExsists && <Header isColorBlack={isHeaderColorBlack} loggedIn={loggedIn}/>}
-      <main className="main">
+      {isHeaderExsists && (
+        <Header isColorBlack={isHeaderColorBlack} loggedIn={loggedIn} />
+      )}
+      <main className='main'>
         <Switch>
-          <Route exact path="/">
+          <Route exact path='/'>
             <Main
               isAuthChecking={isAuthChecking}
               setIsHeaderColorBlack={setIsHeaderColorBlack}
@@ -135,7 +141,7 @@ function App() {
               setIsFooterExsists={setIsFooterExsists}
             />
           </Route>
-          <Route exact path="/signin">
+          <Route exact path='/signin'>
             <Login
               loggedIn={loggedIn}
               handleAppLogin={handleLogin}
@@ -143,7 +149,7 @@ function App() {
               setIsFooterExsists={setIsFooterExsists}
             />
           </Route>
-          <Route exact path="/signup">
+          <Route exact path='/signup'>
             <Register
               loggedIn={loggedIn}
               handleAppLogin={handleLogin}
@@ -152,10 +158,9 @@ function App() {
             />
           </Route>
           <ProtectedRoute
-            path="/movies"
+            path='/movies'
             loggedIn={loggedIn}
-            isChecking={isAuthChecking}
-          >
+            isChecking={isAuthChecking}>
             <Movies
               handleSize={handleSize}
               movieLength={movieLength}
@@ -172,10 +177,9 @@ function App() {
             />
           </ProtectedRoute>
           <ProtectedRoute
-            path="/saved-movies"
+            path='/saved-movies'
             loggedIn={loggedIn}
-            isChecking={isAuthChecking}
-          >
+            isChecking={isAuthChecking}>
             <SavedMovies
               fetchError={fetchError}
               setFetchError={setFetchError}
@@ -194,10 +198,9 @@ function App() {
             />
           </ProtectedRoute>
           <ProtectedRoute
-            path="/profile"
+            path='/profile'
             loggedIn={loggedIn}
-            isChecking={isAuthChecking}
-          >
+            isChecking={isAuthChecking}>
             <Profile
               isAuthChecking={isAuthChecking}
               handleLogout={handleLogout}
@@ -207,10 +210,9 @@ function App() {
             />
           </ProtectedRoute>
           <ProtectedRoute
-            path="*"
+            path='*'
             loggedIn={loggedIn}
-            isChecking={isAuthChecking}
-          >
+            isChecking={isAuthChecking}>
             <PageNotFound
               setIsHeaderExsists={setIsHeaderExsists}
               setIsFooterExsists={setIsFooterExsists}
@@ -218,7 +220,7 @@ function App() {
           </ProtectedRoute>
         </Switch>
       </main>
-      {isFooterExsists && <Footer/>}
+      {isFooterExsists && <Footer />}
     </CurrentUserContext.Provider>
   );
 }

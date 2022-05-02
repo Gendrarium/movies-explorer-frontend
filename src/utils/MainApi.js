@@ -4,11 +4,11 @@ export const register = ({ password, email, name }) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ password, email, name })
+    body: JSON.stringify({ password, email, name }),
   })
-    .then((res => res.json()))
+    .then((res) => res.json())
     .catch((err) => console.log(err));
 };
 
@@ -17,11 +17,10 @@ export const authorize = ({ password, email }) => {
     method: 'POST',
     credentials: 'include',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ password, email })
-  })
-    .then((res => res.json()))
+    body: JSON.stringify({ password, email }),
+  }).then((res) => res.json());
 };
 
 export const checkToken = () => {
@@ -29,28 +28,27 @@ export const checkToken = () => {
     method: 'GET',
     credentials: 'include',
     headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-    .then(res => res.json())
-}
+      'Content-Type': 'application/json',
+    },
+  }).then((res) => res.json());
+};
 
 export const logout = () => {
   return fetch(`${BASE_URL}/logout`, {
     method: 'POST',
     credentials: 'include',
     headers: {
-      'Content-Type': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
   })
-    .then((res => {
+    .then((res) => {
       if (res.status === 200) {
         return res.json();
       } else {
-        throw Error("Произошла ошибка")
+        throw Error('Произошла ошибка');
       }
-    }))
-    .catch(err => console.log(err))
+    })
+    .catch((err) => console.log(err));
 };
 
 export const editProfile = ({ email, name }) => {
@@ -58,18 +56,18 @@ export const editProfile = ({ email, name }) => {
     method: 'PATCH',
     credentials: 'include',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ email, name })
+    body: JSON.stringify({ email, name }),
   })
-    .then((res => {
+    .then((res) => {
       if (res.status === 200) {
         return res.json();
       } else {
-        throw Error("Произошла ошибка")
+        throw Error('Произошла ошибка');
       }
-    }))
-    .catch(err => console.log(err))
+    })
+    .catch((err) => console.log(err));
 };
 
 export const getMovies = () => {
@@ -77,12 +75,18 @@ export const getMovies = () => {
     method: 'GET',
     credentials: 'include',
     headers: {
-      'Content-Type': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
   })
-    .then(res => res.json())
-    .catch(err => console.log(err))
-}
+    .then((res) => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        throw new Error(res);
+      }
+    })
+    .catch((err) => console.log(err));
+};
 
 export const likeMovie = ({
   country,
@@ -100,7 +104,7 @@ export const likeMovie = ({
     method: 'POST',
     credentials: 'include',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       country: country === null ? 'Отсутствует' : country,
@@ -108,22 +112,31 @@ export const likeMovie = ({
       duration,
       year,
       description,
-      image: image === null ? 'https://api.nomoreparties.co' : `https://api.nomoreparties.co${image.url}`,
-      trailer: trailerLink.indexOf('http') === -1 ? 'https://www.youtube.com/' : trailerLink,
+      image:
+        image === null
+          ? 'https://api.nomoreparties.co'
+          : `https://api.nomoreparties.co${image.url}`,
+      trailer:
+        trailerLink.indexOf('http') === -1
+          ? 'https://www.youtube.com/'
+          : trailerLink,
       nameRU,
       nameEN,
-      thumbnail: image === null ? 'https://api.nomoreparties.co' : `https://api.nomoreparties.co${image.formats.thumbnail.url}`,
+      thumbnail:
+        image === null
+          ? 'https://api.nomoreparties.co'
+          : `https://api.nomoreparties.co${image.formats.thumbnail.url}`,
       movieId: id,
-    })
+    }),
   })
-    .then((res => {
+    .then((res) => {
       if (res.status === 200) {
         return res.json();
       } else {
-        throw Error("Произошла ошибка");
+        throw Error('Произошла ошибка');
       }
-    }))
-    .catch(err => console.log(err))
+    })
+    .catch((err) => console.log(err));
 };
 
 export const dislikeMovie = (movieId) => {
@@ -131,18 +144,15 @@ export const dislikeMovie = (movieId) => {
     method: 'DELETE',
     credentials: 'include',
     headers: {
-      'Content-Type': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
   })
-    .then((res => {
+    .then((res) => {
       if (res.status === 200) {
         return res.json();
       } else {
-        throw Error("Произошла ошибка");
+        throw Error('Произошла ошибка');
       }
-    }))
-    .catch(err => console.log(err))
+    })
+    .catch((err) => console.log(err));
 };
-
-
-
