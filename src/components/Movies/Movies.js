@@ -40,22 +40,28 @@ function Movies({
     setIsPreloaderVisible(true);
     if (!JSON.parse(localStorage.getItem('allMovies'))) {
       getMovies()
-      .then((res) => {
-        if (res) {
-          localStorage.setItem('allMovies', JSON.stringify(res));
-          setMovies(handleFilterMovies(res, isShortFilm, values.search));
-        } else {
-          throw new Error();
-        }
-      })
-      .catch((err) => {
-        setFetchError(true);
-      })
-      .finally(() => {
-        setIsPreloaderVisible(false);
-      })
+        .then((res) => {
+          if (res) {
+            localStorage.setItem('allMovies', JSON.stringify(res));
+            setMovies(handleFilterMovies(res, isShortFilm, values.search));
+          } else {
+            throw new Error();
+          }
+        })
+        .catch((err) => {
+          setFetchError(true);
+        })
+        .finally(() => {
+          setIsPreloaderVisible(false);
+        });
     } else {
-      setMovies(handleFilterMovies(JSON.parse(localStorage.getItem('allMovies')), isShortFilm, values.search));
+      setMovies(
+        handleFilterMovies(
+          JSON.parse(localStorage.getItem('allMovies')),
+          isShortFilm,
+          values.search
+        )
+      );
       setIsPreloaderVisible(false);
     }
   }
@@ -65,7 +71,13 @@ function Movies({
     setIsHeaderExsists(true);
     setIsFooterExsists(true);
     setLocation('/movies');
-  }, [isAuthChecking, setIsHeaderColorBlack, setIsHeaderExsists, setIsFooterExsists, setLocation]);
+  }, [
+    isAuthChecking,
+    setIsHeaderColorBlack,
+    setIsHeaderExsists,
+    setIsFooterExsists,
+    setLocation,
+  ]);
 
   React.useEffect(() => {
     if (isFirstSearch) {
@@ -74,19 +86,21 @@ function Movies({
   }, [movies, isFirstSearch]);
 
   React.useEffect(() => {
+    if (savedMovies) {
       const lastSearch = JSON.parse(localStorage.getItem('lastSearch')) || [];
       if (lastSearch.length > 0) {
         const filteredMovies = lastSearch.filter((item) => {
           savedMovies.forEach((i) => {
             if (i.movieId === item.id) {
-              return item.isLiked = true;
+              return (item.isLiked = true);
             }
-          })
+          });
           return item;
-        })
+        });
         setMovies(filteredMovies);
       }
-  }, [savedMovies])
+    }
+  }, [savedMovies]);
 
   return (
     <>
@@ -99,17 +113,17 @@ function Movies({
         handleSubmit={handleSearchSubmit}
         handleSetShortFilm={handleSetShortFilm}
       />
-        <MoviesCardList
-          fetchError={fetchError}
-          movieLength={movieLength}
-          movieLengthAdd={movieLengthAdd}
-          savedMovies={savedMovies}
-          setSavedMovies={setSavedMovies}
-          isPreloaderVisible = {isPreloaderVisible}
-          isFirstSearch={isFirstSearch}
-          movies={movies}
-          location={location}
-        />
+      <MoviesCardList
+        fetchError={fetchError}
+        movieLength={movieLength}
+        movieLengthAdd={movieLengthAdd}
+        savedMovies={savedMovies}
+        setSavedMovies={setSavedMovies}
+        isPreloaderVisible={isPreloaderVisible}
+        isFirstSearch={isFirstSearch}
+        movies={movies}
+        location={location}
+      />
     </>
   );
 }
