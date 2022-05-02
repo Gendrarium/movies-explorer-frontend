@@ -7,13 +7,13 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import './Main.css';
 
-function Main({ setIsHeaderColorBlack, setIsHeaderExsists, setIsFooterExsists }) {
+function Main({ isAuthChecking, setIsHeaderColorBlack, setIsHeaderExsists, setIsFooterExsists }) {
 
   React.useEffect(() => {
     setIsHeaderColorBlack(false);
     setIsHeaderExsists(true);
     setIsFooterExsists(true);
-  }, [setIsHeaderColorBlack, setIsHeaderExsists, setIsFooterExsists]);
+  }, [isAuthChecking, setIsHeaderColorBlack, setIsHeaderExsists, setIsFooterExsists]);
 
   return (
     <>

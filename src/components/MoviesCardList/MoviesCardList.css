@@ -6,9 +6,25 @@
 .movies__full-container {
   margin: 0 auto;
   padding: 80px 0 100px;
-  max-width: 1140px;
+  min-width: 1140px;
   border-top: 1px solid #424242;
   box-sizing: border-box;
+}
+
+.movies__preloader {
+  max-width: 1140px;
+  max-height: 200px;
+}
+
+.movies__not-found {
+  max-width: 1140px;
+  color: #ffffff;
+  margin: 0 auto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
 }
 
 .movies__grid-cards {
@@ -39,6 +55,10 @@
 @media screen and (max-width: 1279px) {
   .movies__full-container {
     padding: 80px 0 100px;
+    min-width: 708px;
+  }
+
+  .movies__not-found {
     max-width: 708px;
   }
 
@@ -56,7 +76,13 @@
   .movies__full-container {
     border: none;
     padding: 49px 0 79px;
+    min-width: 300px;
+  }
+
+  .movies__not-found {
     max-width: 300px;
+    font-size: 14px;
+    line-height: 16px;
   }
 
   .movies__grid-cards {
